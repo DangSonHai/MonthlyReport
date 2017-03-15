@@ -1,0 +1,6 @@
+framework module Pods_UsingClosureProtocol {
+  umbrella header "Pods-UsingClosureProtocol-umbrella.h"
+
+  export *
+  module * { export * }
+}

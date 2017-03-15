@@ -1,0 +1,6 @@
+framework module Pods_ErrorHandlingInAsynchronousProgramming {
+  umbrella header "Pods-ErrorHandlingInAsynchronousProgramming-umbrella.h"
+
+  export *
+  module * { export * }
+}

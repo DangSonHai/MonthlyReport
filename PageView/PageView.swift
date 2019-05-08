@@ -1,11 +1,3 @@
-//
-//  PageView.swift
-//  Jooto
-//
-//  Created by Huy Pham Quang on 7/20/18.
-//  Copyright © 2018 Framgia. All rights reserved.
-//
-
 import UIKit
 
 protocol PageViewDelegate: class {

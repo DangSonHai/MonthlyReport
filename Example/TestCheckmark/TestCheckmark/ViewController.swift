@@ -25,6 +25,5 @@ class ViewController: UIViewController {
         self.checkboxView.isOn = !self.checkboxView.isOn
         self.checkmarkView.isOn = !self.checkmarkView.isOn
     }
-
 }
 

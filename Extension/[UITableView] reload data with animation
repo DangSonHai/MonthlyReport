@@ -1,8 +1,12 @@
+https://stackoverflow.com/questions/14576921/uitableview-reloaddata-with-animation/38378649
 extension UITableView {
     func reloadData(with animation: UITableView.RowAnimation) {
         reloadSections(IndexSet(integersIn: 0..<numberOfSections), with: animation)
     }
 }
+
+// delay and move cell
+https://www.vadimbulavin.com/tableviewcell-display-animation/
 
 static func makeMoveUpWithFade(rowHeight: CGFloat, duration: TimeInterval, delayFactor: Double) -> Animation {
     return { cell, indexPath, _ in
@@ -23,3 +27,14 @@ static func makeMoveUpWithFade(rowHeight: CGFloat, duration: TimeInterval, delay
 let animation = AnimationFactory.makeMoveUpWithFade(rowHeight: cell.frame.height, duration: 0.5, delayFactor: 0.05)
 let animator = Animator(animation: animation)
 animator.animate(cell: cell, at: indexPath, in: tableView)
+
+// fade in-out
+https://stackoverflow.com/questions/40314277/how-to-fade-in-out-the-background-color-of-a-tableviewcell-with-swift
+let oldColor = cell.viewCell.backgroundColor
+    UIView.animate(withDuration: 0.5, animations: {
+        cell.viewCell.backgroundColor = UIColor.red
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.5) {
+                cell.viewCell.backgroundColor = oldColor
+            }
+    })

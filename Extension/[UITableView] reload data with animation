@@ -38,3 +38,15 @@ let oldColor = cell.viewCell.backgroundColor
                 cell.viewCell.backgroundColor = oldColor
             }
     })
+
+// animation with CATransition
+https://stackoverflow.com/questions/419472/have-a-reloaddata-for-a-uitableview-animate-when-changing
+let transition = CATransition()
+transition.type = kCATransitionPush
+transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+transition.fillMode = kCAFillModeForwards
+transition.duration = 0.5
+transition.subtype = kCATransitionFromTop
+self.tableView.layer.addAnimation(transition, forKey: "UITableViewReloadDataAnimationKey")
+// Update your data source here
+self.tableView.reloadData()

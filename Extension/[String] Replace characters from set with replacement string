@@ -1,0 +1,22 @@
+https://gist.github.com/joshavant/d9a94373ec45a7b5d7e7d98263e46e1e
+
+extension String {
+    func replaceCharactersFromSet(characterSet: CharacterSet, replacementString: String) -> String {
+        let scanner = Scanner(string: self)
+        scanner.charactersToBeSkipped = nil
+        
+        let sanitizedString = NSMutableString(capacity: self.count)
+        
+        while(!scanner.isAtEnd) {
+            var buffer: NSString? = ""
+            if scanner.scanUpToCharacters(from: characterSet as CharacterSet, into: &buffer), let buffer = buffer {
+                sanitizedString.append(buffer as String)
+            } else {
+                scanner.scanLocation = scanner.scanLocation + 1
+                sanitizedString.append(replacementString as String)
+            }
+        }
+        
+        return sanitizedString as String
+    }
+}

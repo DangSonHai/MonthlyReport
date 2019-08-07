@@ -1,36 +1,31 @@
-NSString *value = @"<0000000a 00140000>"//[item stringValue] (in this case 10/20)
-NSString *track_no_hex = [[value componentsSeparatedByString:@""][0] stringByReplacingOccurrencesOfString:@"<" withString:@""];
-NSString *total_track_no_hex = [[value componentsSeparatedByString:@""][1] stringByReplacingOccurrencesOfString:@">" withString:@""];
+func processFile(url:NSURL) {
+    let yearKey = -1453039239
+    let genreKey = -1452841618
+    let encoderKey = -1451987089
+    let trackKey = "com.apple.iTunes.iTunes_CDDB_TrackNumber"
+    let CDDBKey = "com.apple.iTunes.iTunes_CDDB_1"
+    let path:String = url.absoluteString
+    let asset = AVURLAsset(URL: url, options: nil)
+    let format = AVMetadataFormatiTunesMetadata
 
-NSString *track_no = @"";
-for(int k=0;k<=4;k+=4){
- unsigned result = 0;
- NSScanner *scanner = [NSScanner scannerWithString:[track_no_hex substringWithRange:NSMakeRange(k, 4)]];
- [scanner scanHexInt:&result];
- if(result == 00){
 
- }
- else{
- track_no = [NSString stringWithFormat:@"%@%u",track_no,result];
- }
+    for item:AVMetadataItem in asset.metadataForFormat(format) as Array<AVMetadataItem> {
+
+        if let key = item.commonKey { if key == "title" { println(item.value()) } }
+        if let key = item.commonKey { if key == "artist" { println(item.value()) } }
+        if let key = item.commonKey { if key == "albumName" { println(item.value()) } }
+        if let key = item.commonKey { if key == "creationDate" { println(item.value()) } }
+        if let key = item.commonKey { if key == "artwork" { println( "art" ) } }
+
+        if item.key().isKindOfClass(NSNumber) {
+            if item.key() as NSNumber == yearKey { println("year: \(item.numberValue)") }
+            if item.key() as NSNumber == genreKey { println("genre: \(item.stringValue)") }
+            if item.key() as NSNumber == encoderKey { println("encoder: \(item.stringValue)") }
+        }
+
+        if item.key().isKindOfClass(NSString) {
+            if item.key() as String == trackKey { println("track: \(item.stringValue)") }
+            if item.key() as String == CDDBKey { println("CDDB: \(item.stringValue)") }
+        }
+    }
 }
-
-NSString *total_track_no = @"";
-for(int k=0;k<=4;k+=4){
- unsigned result = 0;
- NSScanner *scanner;
- if(k+4<=[total_track_no_hex length]){
- scanner = [NSScanner scannerWithString:[total_track_no_hex substringWithRange:NSMakeRange(k, 4)]];
- }
- else{
-
- }
- [scanner scanHexInt:&result];
- if(result == 00){
-
- }
- else{
- total_track_no = [NSString stringWithFormat:@"%@%u",total_track_no,result];
- }
-}
-NSLog(@"%@/%@",track_no, total_track_no);//Output 10/20

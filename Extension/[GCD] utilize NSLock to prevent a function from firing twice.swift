@@ -81,3 +81,40 @@ override func viewDidLoad() {
     functionOne()
     functionTwo()
 }
+
+-------------------------------------------------------------------------------------------------
+
+class ViewController: UIViewController {
+
+    let group = DispatchGroup()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        group.enter()
+        functionOne()
+
+        group.enter()
+        functionTwo()
+
+        group.notify(queue: .global(qos: .default), execute: { [weak self] in
+            self?.functionThree()
+        })
+    }
+
+    func functionOne() {
+        //async stuff
+
+        group.leave()
+    }
+
+    func functionTwo() {
+        //async stuff
+
+        group.leave()
+    }
+
+    func functionThree() {
+        //stuff
+    }
+}

@@ -1,4 +1,5 @@
 https://stackoverflow.com/questions/46690337/display-japanese-text-with-furigana-in-uilabel/47377024#47377024
+https://qiita.com/negi0205/items/6c73128ff2cf680df47c
 
 import UIKit
 

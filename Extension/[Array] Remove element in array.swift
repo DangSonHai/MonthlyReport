@@ -12,6 +12,21 @@ public extension Array where Element: Equatable {
     }
 }
 
+// swift 5
+public extension Array where Element: Equatable {
+    @discardableResult
+	mutating func remove(_ element: Element) -> Index? {
+		guard let index = firstIndex(of: element) else { return nil }
+        remove(at: index)
+        return index
+    }
+
+    @discardableResult
+	mutating func remove(_ elements: [Element]) -> [Index] {
+		return elements.compactMap { remove($0) }
+    }
+}
+
 let array = ["foo", "bar"]
 array.remove(element: "foo")
 array //=> ["bar"]

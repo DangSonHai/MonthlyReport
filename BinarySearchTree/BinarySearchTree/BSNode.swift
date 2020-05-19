@@ -42,7 +42,7 @@ class BSNode<T> {
             left?.traverse()
         }
         
-        print("...the value is: \(key) - height: \(self.height)..")
+		print("...the value is: \(key) - height: \(self.height())..")
         
         //process the right side
         if self.right != nil {

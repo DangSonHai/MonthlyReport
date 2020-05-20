@@ -26,27 +26,28 @@ class CustomPresentModalViewController: UIViewController {
     }
 
     @IBAction func buttonPressed(sender: AnyObject) {
-        let avatarViewController = self.storyboard!.instantiateViewControllerWithIdentifier("avatarViewControllere") as! AvatarViewController
+		let storybaord = UIStoryboard(name: "Main", bundle: nil)
+		let avatarViewController = storybaord.instantiateViewController(withIdentifier: "avatarViewControllere") as! AvatarViewController
         avatarViewController.transitioningDelegate = self
-        self.presentViewController(avatarViewController, animated: true, completion: nil)
+		avatarViewController.modalPresentationStyle = .currentContext
+		self.present(avatarViewController, animated: true, completion: nil)
     }
     
 }
 
 extension CustomPresentModalViewController: UIViewControllerTransitioningDelegate {
-    func animationControllerForPresentedController(presented: UIViewController,
-                                                   presentingController presenting: UIViewController,
-                                                                        sourceController source: UIViewController) ->
-        UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController,
+							 presenting: UIViewController,
+							 source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
             self.view.layoutSubviews()
             self.view.layoutIfNeeded()
             
             transition.presenting = true
-            transition.originFrame = avatarImageView.superview!.convertRect(avatarImageView!.frame, toView: nil)
+			transition.originFrame = avatarImageView.superview!.convert(avatarImageView!.frame, to: nil)
             return transition
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.presenting = false
         return transition
     }

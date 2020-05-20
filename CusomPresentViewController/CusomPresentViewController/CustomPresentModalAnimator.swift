@@ -22,25 +22,23 @@ class CustomPresentModalAnimator: NSObject, UIViewControllerAnimatedTransitionin
     
     private let AvatarImageViewTag = 69
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?)-> NSTimeInterval {
+	func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) else {
+	 func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+		guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) else {
             return
         }
         
-        guard let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+		guard let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
             return
         }
         
         // hide to viewcontroller
         toVC.view.layer.opacity = 0.0
         
-        guard let containView = transitionContext.containerView() else {
-            return
-        }
+		let containView = transitionContext.containerView
         
         // when present fromVC is CustomPresentModalViewController
         // when dismiss toVC is CustomPresentModalViewController
@@ -48,8 +46,8 @@ class CustomPresentModalAnimator: NSObject, UIViewControllerAnimatedTransitionin
         let customPresentModalVC = navigationControllerFirst.viewControllers.last as! CustomPresentModalViewController
         
         // get avatar image view
-        let topView = customPresentModalVC.view.subviews.flatMap{ $0 }.filter{ $0.tag == 68 }.first!
-        let avatarImageViewFirst = topView.subviews.flatMap{ $0 }.filter{ $0.tag == AvatarImageViewTag }.first!
+		let topView = customPresentModalVC.view.subviews.compactMap{ $0 }.filter{ $0.tag == 68 }.first!
+		let avatarImageViewFirst = topView.subviews.compactMap{ $0 }.filter{ $0.tag == AvatarImageViewTag }.first!
         
         // hide avatar image view
         avatarImageViewFirst.layer.opacity = 0.0
@@ -59,7 +57,7 @@ class CustomPresentModalAnimator: NSObject, UIViewControllerAnimatedTransitionin
         let avatarViewController = presenting ? (toVC as! AvatarViewController) : (fromVC as! AvatarViewController)
         avatarViewController.view.layoutIfNeeded()
         avatarViewController.view.layoutSubviews()
-        let avatarImageViewSecond = avatarViewController.view.subviews.flatMap{ $0 }.filter{ $0.tag == AvatarImageViewTag }.first!
+		let avatarImageViewSecond = avatarViewController.view.subviews.compactMap{ $0 }.filter{ $0.tag == AvatarImageViewTag }.first!
         
         // hide avatar
         avatarImageViewSecond.layer.opacity = 0.0
@@ -93,13 +91,13 @@ class CustomPresentModalAnimator: NSObject, UIViewControllerAnimatedTransitionin
         }
         
         // set fake avatar image center
-        fakeAvatarImageView.center = CGPointMake(CGRectGetMidX(initialFrame), CGRectGetMidY(initialFrame))
+		fakeAvatarImageView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
     
         // calculate scale fake avatar image
         xScaleFactor = finalFrame.size.width / initialFrame.size.width
         yScaleFactor = finalFrame.size.height / initialFrame.size.height
         
-        let scaleTransform = CGAffineTransformMakeScale(xScaleFactor, yScaleFactor)
+		let scaleTransform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
         
         // add fake avatar image view into toVC
         containView.addSubview(toVC.view)
@@ -107,12 +105,12 @@ class CustomPresentModalAnimator: NSObject, UIViewControllerAnimatedTransitionin
         containView.bringSubviewToFront(fakeAvatarImageView)
         
         // make animation for transition between controllers
-        UIView.animateWithDuration(transitionDuration(transitionContext),
+		UIView.animate(withDuration: transitionDuration(using: transitionContext),
                                    delay: 0,
-                                   options: .CurveEaseInOut,
+                                   options: .curveEaseInOut,
                                    animations: {
                                     fakeAvatarImageView.transform = scaleTransform
-                                    fakeAvatarImageView.center = CGPointMake(CGRectGetMidX(self.finalFrame), CGRectGetMidY(self.finalFrame))
+									fakeAvatarImageView.center = CGPoint(x: self.finalFrame.midX, y: self.finalFrame.midY)
                                     toVC.view.layer.opacity = 1.0
             }) { finished in
                 // show avatar in both view controller
@@ -123,7 +121,7 @@ class CustomPresentModalAnimator: NSObject, UIViewControllerAnimatedTransitionin
                 fakeAvatarImageView.removeFromSuperview()
                 
                 // complete
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+				transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
 }

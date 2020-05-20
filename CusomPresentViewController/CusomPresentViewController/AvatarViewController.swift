@@ -23,7 +23,7 @@ class AvatarViewController: UIViewController {
     }
 
     @IBAction func dismissPressed(sender: AnyObject) {
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+		presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
 }

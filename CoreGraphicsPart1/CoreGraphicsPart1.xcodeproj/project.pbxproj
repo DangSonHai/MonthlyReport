@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64AE031E2475133700B32EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64AE031D2475133700B32EAA /* Main.storyboard */; };
 		DE062BEF1EA2006700932817 /* BaseBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BEE1EA2006700932817 /* BaseBrush.swift */; };
 		DE062BF11EA201B200932817 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BF01EA201B200932817 /* DrawView.swift */; };
 		DE062BF71EA214F700932817 /* SquareBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE062BF61EA214F700932817 /* SquareBrush.swift */; };
@@ -14,9 +15,7 @@
 		DE50D8441EA89306002D4DEF /* LineBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE50D8431EA89306002D4DEF /* LineBrush.swift */; };
 		DE5779221E9F6734001D587C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5779211E9F6734001D587C /* RootViewController.swift */; };
 		DE5779241E9F67C5001D587C /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5779231E9F67C5001D587C /* DrawViewController.swift */; };
-		DE5779281E9F6946001D587C /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE5779271E9F6946001D587C /* DrawViewController.xib */; };
 		DE620CA31EA9C29F006E54AB /* SloppyDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE620CA11EA9C29F006E54AB /* SloppyDrawingViewController.swift */; };
-		DE620CA41EA9C29F006E54AB /* SloppyDrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE620CA21EA9C29F006E54AB /* SloppyDrawingViewController.xib */; };
 		DE620CA61EA9C303006E54AB /* SloppyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE620CA51EA9C303006E54AB /* SloppyView.swift */; };
 		DE8E53651EAC410200001BF4 /* EllipseBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E53641EAC410200001BF4 /* EllipseBrush.swift */; };
 		DE8F3DD91E91117300DAA593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8F3DD81E91117300DAA593 /* AppDelegate.swift */; };
@@ -44,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64AE031D2475133700B32EAA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE062BEE1EA2006700932817 /* BaseBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBrush.swift; sourceTree = "<group>"; };
 		DE062BF01EA201B200932817 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		DE062BF61EA214F700932817 /* SquareBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareBrush.swift; sourceTree = "<group>"; };
@@ -51,9 +51,7 @@
 		DE50D8431EA89306002D4DEF /* LineBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineBrush.swift; sourceTree = "<group>"; };
 		DE5779211E9F6734001D587C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		DE5779231E9F67C5001D587C /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
-		DE5779271E9F6946001D587C /* DrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawViewController.xib; sourceTree = "<group>"; };
 		DE620CA11EA9C29F006E54AB /* SloppyDrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SloppyDrawingViewController.swift; sourceTree = "<group>"; };
-		DE620CA21EA9C29F006E54AB /* SloppyDrawingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SloppyDrawingViewController.xib; sourceTree = "<group>"; };
 		DE620CA51EA9C303006E54AB /* SloppyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SloppyView.swift; sourceTree = "<group>"; };
 		DE8E53641EAC410200001BF4 /* EllipseBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipseBrush.swift; sourceTree = "<group>"; };
 		DE8F3DD51E91117300DAA593 /* CoreGraphicsPart1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreGraphicsPart1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,10 +141,9 @@
 				DE8F3DD81E91117300DAA593 /* AppDelegate.swift */,
 				DE5779211E9F6734001D587C /* RootViewController.swift */,
 				DE5779231E9F67C5001D587C /* DrawViewController.swift */,
-				DE5779271E9F6946001D587C /* DrawViewController.xib */,
 				DE620CA11EA9C29F006E54AB /* SloppyDrawingViewController.swift */,
-				DE620CA21EA9C29F006E54AB /* SloppyDrawingViewController.xib */,
 				DE8F3DDF1E91117300DAA593 /* Assets.xcassets */,
+				64AE031D2475133700B32EAA /* Main.storyboard */,
 				DE8F3DE11E91117300DAA593 /* LaunchScreen.storyboard */,
 				DE8F3DE41E91117300DAA593 /* Info.plist */,
 			);
@@ -234,7 +231,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Framgia, Inc";
 				TargetAttributes = {
 					DE8F3DD41E91117300DAA593 = {
@@ -252,7 +249,7 @@
 			};
 			buildConfigurationList = DE8F3DD01E91117300DAA593 /* Build configuration list for PBXProject "CoreGraphicsPart1" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -275,10 +272,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE5779281E9F6946001D587C /* DrawViewController.xib in Resources */,
+				64AE031E2475133700B32EAA /* Main.storyboard in Resources */,
 				DE8F3DE31E91117300DAA593 /* LaunchScreen.storyboard in Resources */,
 				DE8F3DE01E91117300DAA593 /* Assets.xcassets in Resources */,
-				DE620CA41EA9C29F006E54AB /* SloppyDrawingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,18 +360,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -409,18 +416,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -439,6 +457,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -451,6 +470,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Exlinct.CoreGraphicsPart1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -462,6 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Exlinct.CoreGraphicsPart1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -16,46 +16,46 @@ class SloppyView: UIView {
         }
     }
     
-    func saveGState(context: CGContextRef, drawStuff: () -> ()) {
-        CGContextSaveGState(context)
+	func saveGState(context: CGContext, drawStuff: () -> ()) {
+		context.saveGState()
         drawStuff()
-        CGContextRestoreGState(context)
+		context.restoreGState()
     }
     
-    func drawRedCircle(context: CGContextRef,rect: CGRect) {
-        CGContextSetStrokeColorWithColor(context, UIColor.redColor().CGColor)
-        CGContextStrokeEllipseInRect(context, rect)
+	func drawRedCircle(_ context: CGContext, rect: CGRect) {
+		context.setStrokeColor(UIColor.red.cgColor)
+		context.strokeEllipse(in: rect)
     }
     
     // MARK: Methods - Draw sloppily
-    func drawSloppily(context:  CGContextRef) {
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
-        CGContextSetLineWidth(context, 3.0)
+	func drawSloppily(_ context:  CGContext) {
+		context.setStrokeColor(UIColor.black.cgColor)
+		context.setFillColor(UIColor.white.cgColor)
+		context.setLineWidth(3.0)
         
-        let innerRect = CGRectInset(self.bounds, 20.0, 20.0)
-        CGContextSetStrokeColorWithColor(context, UIColor.orangeColor().CGColor)
-        drawRedCircle(context, rect: innerRect)
-        CGContextStrokeRect(context, innerRect)
+		let innerRect = self.bounds.insetBy(dx: 20.0, dy: 20.0)
+		context.setStrokeColor(UIColor.orange.cgColor)
+		drawRedCircle(context, rect: innerRect)
+		context.stroke(innerRect)
     }
     
     // MARK: Methods - Draw nicely
-    func drawNicely(context: CGContextRef) {
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
-        CGContextSetLineWidth(context, 3.0)
+	func drawNicely(_ context: CGContext) {
+		context.setStrokeColor(UIColor.black.cgColor)
+		context.setFillColor(UIColor.white.cgColor)
+		context.setLineWidth(3.0)
         
-        let innerRect = CGRectInset(self.bounds, 20.0, 20.0)
-        CGContextSetStrokeColorWithColor(context, UIColor.orangeColor().CGColor)
-        saveGState(context) { 
-            self.drawRedCircle(context, rect: innerRect)
+		let innerRect = self.bounds.insetBy(dx: 20.0, dy: 20.0)
+		context.setStrokeColor(UIColor.orange.cgColor)
+		saveGState(context: context) {
+			self.drawRedCircle(context, rect: innerRect)
         }
-        CGContextStrokeRect(context, innerRect)
+		context.stroke(innerRect)
     }
     
     // MARK: Override Draw
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+	override func draw(_ rect: CGRect) {
+		super.draw(rect)
         
         guard let context = UIGraphicsGetCurrentContext() else {
             return

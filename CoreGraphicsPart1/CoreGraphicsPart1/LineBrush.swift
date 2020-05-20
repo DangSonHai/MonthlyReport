@@ -9,12 +9,13 @@
 import UIKit
 
 class LineBrush: BaseBrush {
-    override func drawInContext(context: CGContextRef) {
-        guard let startPoint = self.startPoint, endPoint = self.endPoint else {
+	override func drawInContext(context: CGContext) {
+		guard let startPoint = self.startPoint,
+			let endPoint = self.endPoint else {
             return
         }
         
-        CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-        CGContextAddLineToPoint(context, endPoint.x, endPoint.y)
+		context.move(to: CGPoint(x: startPoint.x, y: startPoint.y))
+		context.addLine(to: CGPoint(x: endPoint.x, y: endPoint.y))
     }
 }

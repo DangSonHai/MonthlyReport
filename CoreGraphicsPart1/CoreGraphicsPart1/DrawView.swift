@@ -15,43 +15,43 @@ class DrawView: UIView {
     
     override init(frame: CGRect) {
         self.strokeWidth = 1.0
-        self.strokeColor = UIColor.blackColor()
+		self.strokeColor = UIColor.black
         
         super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
         self.strokeWidth = 1.0
-        self.strokeColor = UIColor.blackColor()
+		self.strokeColor = UIColor.black
         
         super.init(coder: aDecoder)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	override func touchesBegan(_ touches: Set<UITouch>, with e: UIEvent?) {
         if let brush = self.brush {
-            brush.startPoint = touches.first!.locationInView(self)
+			brush.startPoint = touches.first!.location(in: self)
             brush.endPoint = brush.startPoint
 //            self.setNeedsDisplay()
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with e: UIEvent?) {
         if let brush = self.brush {
-            brush.endPoint = touches.first?.locationInView(self)
+			brush.endPoint = touches.first?.location(in: self)
             self.setNeedsDisplay()
         }
     }
     
-    override func drawRect(rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, self.strokeWidth)
-        CGContextSetStrokeColorWithColor(context, self.strokeColor.CGColor)
+	override func draw(_ rect: CGRect) {
+        let context = UIGraphicsGetCurrentContext()!
+		context.setLineCap(CGLineCap.round)
+		context.setLineWidth(self.strokeWidth)
+		context.setStrokeColor(self.strokeColor.cgColor)
 
         if let brush = self.brush {
-            brush.drawInContext(context!)
+			brush.drawInContext(context: context)
         }
         
-        CGContextStrokePath(context)
+		context.strokePath()
     }
 }

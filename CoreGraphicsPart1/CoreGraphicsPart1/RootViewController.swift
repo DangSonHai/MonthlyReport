@@ -28,8 +28,8 @@ class RootViewController: UITabBarController {
         let navigationSloppyDrawingController = UINavigationController(rootViewController: SloppyDrawingViewController())
         navigationDrawViewController.tabBarItem.title = "Shape Draw"
         navigationSloppyDrawingController.tabBarItem.title = "Sloppy Draw"
-        navigationSloppyDrawingController.navigationBarHidden = true
-        navigationDrawViewController.navigationBarHidden = true
+		navigationSloppyDrawingController.isNavigationBarHidden = true
+		navigationDrawViewController.isNavigationBarHidden = true
         self.viewControllers = [navigationSloppyDrawingController, navigationDrawViewController]
     }
 }

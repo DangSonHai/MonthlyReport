@@ -31,23 +31,6 @@ class DrawViewController: UIViewController {
         self.drawView.brush = LineBrush()
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    // MARK: Methods - Required
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    // MARK: Methods - Convenience
-    
-    convenience init() {
-        let nibNameOrNil = "DrawViewController"
-        self.init(nibName: nibNameOrNil, bundle: nil)
-    }
-    
     // MARK: Methods - IBActions
     
     @IBAction func brushSegmentedControlValueChange(sender: UISegmentedControl) {

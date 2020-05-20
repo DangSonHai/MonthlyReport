@@ -20,7 +20,7 @@ class SloppyDrawingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -38,7 +38,7 @@ class SloppyDrawingViewController: UIViewController {
     }
     
     @IBAction func sloppyChange(sender: UISwitch) {
-        sloppyView.beSloppy = sender.on
+		sloppyView.beSloppy = sender.isOn
     }
     
 }

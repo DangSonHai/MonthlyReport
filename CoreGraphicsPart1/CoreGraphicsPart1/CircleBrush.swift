@@ -9,13 +9,13 @@
 import CoreGraphics
 
 class CircleBrush: BaseBrush {
-    override func drawInContext(context: CGContextRef) {
-        guard let startPoint = self.startPoint, endPoint = self.endPoint else {
+	override func drawInContext(context: CGContext) {
+		guard let startPoint = self.startPoint, let endPoint = self.endPoint else {
             return
         }
         
-        let origin = CGPointMake(min(startPoint.x, endPoint.x), min(startPoint.y, endPoint.y))
-        let size = CGSizeMake(abs(endPoint.x - startPoint.x), abs(endPoint.y - startPoint.y))
-        CGContextAddEllipseInRect(context, CGRect(origin: origin, size: size))
+		let origin = CGPoint(x: min(startPoint.x, endPoint.x), y: min(startPoint.y, endPoint.y))
+		let size = CGSize(width: abs(endPoint.x - startPoint.x), height: abs(endPoint.y - startPoint.y))
+		context.addEllipse(in: CGRect(origin: origin, size: size))
     }
 }

@@ -9,7 +9,7 @@
 import CoreGraphics
 
 protocol PaintBrush{
-    func drawInContext(context: CGContextRef)
+	func drawInContext(context: CGContext)
 }
 
 class BaseBrush: NSObject, PaintBrush {
@@ -17,7 +17,7 @@ class BaseBrush: NSObject, PaintBrush {
     var endPoint: CGPoint!
     var strokeWidth: CGFloat!
     
-    func drawInContext(context: CGContextRef) {
+	func drawInContext(context: CGContext) {
         assert(false, "implement in subclass.")
     }
 }

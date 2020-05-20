@@ -9,8 +9,9 @@
 import CoreGraphics
 
 class EllipseBrush: BaseBrush {
-    override func drawInContext(context: CGContextRef) {
-        guard let startPoint = self.startPoint, endPoint = self.endPoint else {
+	override func drawInContext(context: CGContext) {
+		guard let startPoint = self.startPoint,
+			let endPoint = self.endPoint else {
             return
         }
         
@@ -20,6 +21,10 @@ class EllipseBrush: BaseBrush {
         centerX += (startPoint.x < endPoint.x) ? startPoint.x : endPoint.x
         centerY += (startPoint.y < endPoint.y) ? startPoint.y : endPoint.y
         radius = sqrt(pow(Double(endPoint.x) - Double(startPoint.x), 2.0) + pow(Double(endPoint.y) - Double(startPoint.y), 2.0)) / 2
-        CGContextAddArc(context, centerX, centerY, CGFloat(radius), 0, CGFloat(M_PI * 2), 0)
+		context.addArc(center: CGPoint(x: centerX, y: centerX),
+					   radius: CGFloat(radius),
+					   startAngle: 0,
+					   endAngle: CGFloat.pi * 2,
+					   clockwise: false)
     }
 }

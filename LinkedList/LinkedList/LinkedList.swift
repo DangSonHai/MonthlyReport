@@ -13,7 +13,7 @@ public class LinkedList<T: Equatable> {
     private var head: Node<T> = Node<T>()
     
     // Them 1 node vao cuoi danh sach
-    func addLink(data: T) {
+    func addLink(_ data: T) {
         
         if (head.data == nil) {
             head.data = data
@@ -44,7 +44,7 @@ public class LinkedList<T: Equatable> {
     }
     
     // Them 1 node vao vi tri index trong danh sach
-    func addLinkAtIndex(data: T, index: Int) {
+    func addLinkAtIndex(_ data: T, index: Int) {
         
         //Kiem tra xem danh do co node head ko
         if (head.data == nil) {
@@ -118,7 +118,7 @@ public class LinkedList<T: Equatable> {
         }
     }
     
-    func removeLinkAtIndex(index: Int) {
+    func removeLinkAtIndex(_ index: Int) {
         
         // Kiem tra xem danh do co node head ko
         if head.data == nil {

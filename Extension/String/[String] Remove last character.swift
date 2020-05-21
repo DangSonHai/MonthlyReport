@@ -12,11 +12,11 @@ str
 
 extension String {
 
-    func removeCharsFromEnd(count_:Int) -> String {
-        let stringLength = count(self)
+    func removeCharsFromEnd(count: Int) -> String {
+		let stringLength = self.count
 
-        let substringIndex = (stringLength < count_) ? 0 : stringLength - count_
+		let substringIndex = (stringLength < count) ? 0 : stringLength - count
 
-        return self.substringToIndex(advance(self.startIndex, substringIndex))
-    }
+		return self.subString(fromIndex: 0, toIndex: substringIndex)
+	}
 }

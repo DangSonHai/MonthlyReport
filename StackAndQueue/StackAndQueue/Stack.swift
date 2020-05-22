@@ -11,7 +11,7 @@ import Foundation
 class Stack<T> {
     var top: Node<T>! = Node<T>()
     
-    func push(key: T) {
+    func push(_ key: T) {
         // neu ngan xep chua co dinh
         if top == nil {
             top = Node<T>()

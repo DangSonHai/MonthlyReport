@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
 
     func buildStack() {
-        let numberList = [1,4,7,9,10,12,20]
+        let numberList = [1, 4, 7, 9, 10, 12, 20]
         
         for number in numberList {
             stack.push(number)
@@ -44,9 +44,10 @@ class ViewController: UIViewController {
     
     func printStack() {
         var top = stack.top
+		
         print(top.key)
         
-        while top.next != nil {
+		while top.next != nil {
             top = top.next
             print(top.key)
         }
@@ -63,15 +64,16 @@ class ViewController: UIViewController {
         print(item)
     }
     
-    func reverseString(stringInput: String) -> String {
+    func reverseString(_ stringInput: String) -> String {
         let stringStack = Stack<String>()
         
-        for s in stringInput.characters {
+        for s in stringInput {
             stringStack.push(String(s))
         }
         
         var newString = ""
         var item = stringStack.top
+
         newString += item.key
         
         while item.next != nil {
@@ -91,15 +93,17 @@ class ViewController: UIViewController {
         
         let postfixExpression = convertInfixToPostfixExpression(infixExpression)
         
-        for s in postfixExpression.characters {
+        for s in postfixExpression {
             let x = String(s)
             
-            if numbers.rangeOfString(x) != nil {
+            if numbers.range(of: x) != nil {
                 resultStack.push(Int(x)!)
-            } else if operators.rangeOfString(x) != nil {
+            } else if operators.range(of: x) != nil {
                 let number1 = resultStack.pop()!
                 let number2 = resultStack.pop()!
-                let result = calculate(number1, number2: number2, _operator: x)
+				let result = calculate(number1: number1,
+									   number2: number2,
+									   _operator: x)
                 resultStack.push(result)
             } else {
                 
@@ -125,16 +129,16 @@ class ViewController: UIViewController {
         
     }
     
-    func convertInfixToPostfixExpression(infixExpression: String) -> String{
+    func convertInfixToPostfixExpression(_ infixExpression: String) -> String{
         let stackOperator = Stack<String>()
         var postfixExpression = ""
         
-        for s in infixExpression.characters {
+        for s in infixExpression {
             let x = String(s)
             
-            if numbers.rangeOfString(x) != nil {
+            if numbers.range(of: x) != nil {
                 postfixExpression += x
-            } else if operators.rangeOfString(x) != nil {
+            } else if operators.range(of: x) != nil {
                 stackOperator.push(x)
             } else if x == ")" { // gap dau dong ngoac lay toan tu ra dua vao bieu thuc moi
                 let _operator = stackOperator.pop()
